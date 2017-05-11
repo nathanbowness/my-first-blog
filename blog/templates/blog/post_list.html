@@ -7,11 +7,18 @@
 <body>
     <div>
         <h1><a href="">Django Tutorial Site</a></h1>
+        <p>Welcome to my new website.</p>
     </div>
     <div>
-        <p>published on ubuntu 16.04, 2017/05/10 </p>
-        <h2>The first real post</h2>
-        <p>Welcome to my new website.</p>
+        <h2>Blog Section of the Website</h2>
+        {% for post in posts %}
+            <p>published on: {{ post.published_date }}</p>
+            <p>The author of the post was {{ post.author }}</p>
+            <p><a href="">{{ post.title }}</a></p>
+            <p>{{ post.text }}</p>
+            <br>
+        {% endfor %}
+        <p>Thank you for reading</p>
     </div>
     <div>
         <h2><a href="">The second real post</a></h2>
