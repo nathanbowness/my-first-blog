@@ -1,0 +1,35 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Django Tutorial Site</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Ravi+Prakash" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+</head>
+<body>
+    <div class ="page_header">
+        <h1><a href="">Django Tutorial Site</a></h1>
+    </div>
+
+    <div class ="intro">
+        <p>Welcome to my new website.</p>
+    </div>
+
+    <div class = "post_intro">
+        <h2> Section of the Website</h2>
+    </div>
+
+<div class="posts_class">
+    <div class="row">
+        <div class="col-md-8">
+            {%  block content %}
+            {%  endblock %}
+        </div>
+    </div>
+</div>
+</body>
+</html>

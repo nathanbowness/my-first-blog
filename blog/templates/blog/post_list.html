@@ -1,28 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Django Tutorial Site</title>
-</head>
-<body>
-    <div>
-        <h1><a href="">Django Tutorial Site</a></h1>
-        <p>Welcome to my new website.</p>
-    </div>
-    <div>
-        <h2>Blog Section of the Website</h2>
-        {% for post in posts %}
-            <p>published on: {{ post.published_date }}</p>
-            <p>The author of the post was {{ post.author }}</p>
-            <p><a href="">{{ post.title }}</a></p>
+{%  extends 'blog/base.html' %}
+
+{{% block content %}
+    {% for post in posts %}
+        <div class="posts">
+            <div class="date">
+                {{ post.published_date }}
+            </div>
+            <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
             <p>{{ post.text }}</p>
-            <br>
-        {% endfor %}
-        <p>Thank you for reading</p>
-    </div>
-    <div>
-        <h2><a href="">The second real post</a></h2>
-        <p>Hopefully you are liking the posts so far.</p>
-    </div>
-</body>
-</html>
+        </div>
+    {% endfor %}
+{% endblock %}
